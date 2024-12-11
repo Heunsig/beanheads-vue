@@ -9,14 +9,16 @@ import Avatar from './components/Avatar.vue'
     mask
     skin="brown"
     body="breasts"
-    hat-color="red"
+    eye="happy-eyes"
+    with-lashes
+    hat-color="white"
     clothing="shirt"
     clothing-color="green"
     mouth="tongue"
     accessory="none"
-    hair="balding"
-    hat="turban"
+    hair="short"
     hair-color="blue"
     clothing-graphic="vue"
+    hat="party-hat"
   />  
 </template>

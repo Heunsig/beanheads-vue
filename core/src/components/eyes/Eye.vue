@@ -9,8 +9,9 @@ import NormalEyes from './NormalEyes.vue';
 import SimpleEyes from './SimpleEyes.vue';
 import SquintEyes from './SquintEyes.vue';
 import Wink from './Wink.vue';
+import Cyborg from './Cyborg.vue';
 
-export type EyeType = 'content-eyes' | 'dizzy-eyes' | 'happy-eyes' | 'heart-eyes' | 'left-twitch-eyes' | 'normal-eyes' | 'simple-eyes' | 'squint-eyes' | 'wink';
+export type EyeType = 'content-eyes' | 'dizzy-eyes' | 'happy-eyes' | 'heart-eyes' | 'left-twitch-eyes' | 'normal-eyes' | 'simple-eyes' | 'squint-eyes' | 'wink' | 'cyborg';
 
 const props = defineProps<{
   type: EyeType,
@@ -28,6 +29,7 @@ const eyeComponent = computed(() => {
     'simple-eyes': SimpleEyes,
     'squint-eyes': SquintEyes,
     'wink': Wink,
+    'cyborg': Cyborg,
   }[props.type];
 });
 </script>
