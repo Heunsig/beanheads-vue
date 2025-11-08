@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { colors } from '@/constants/theme';
-import { useTheme } from '@/composables/useTheme';
-import { computed } from 'vue';
+import type { Theme } from '@/types/theme';
+import { computed, inject } from 'vue';
 
 defineOptions({
   inheritAttrs: false,
@@ -16,7 +16,7 @@ const props = withDefaults(defineProps<{
   withLashes: false,
 })
 
-const { skin } = useTheme();
+const { skin } = inject<Theme>('theme')!;
 
 const clothingColor = computed(() => colors.clothing[props.color]);
 </script>

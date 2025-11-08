@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import { useTheme } from '@/composables/useTheme';
+import { computed, inject } from 'vue';
 import { colors } from '@/constants/theme';
+import type { Theme } from '@/types/theme';
 
 const props = defineProps<{
   color: keyof typeof colors.clothing
 }>()
 
-const { skin } = useTheme();
+const { skin } = inject<Theme>('theme')!;
 const clothingColor = computed(() => colors.clothing[props.color]);
 </script>
 

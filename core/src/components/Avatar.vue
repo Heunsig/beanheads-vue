@@ -1,8 +1,9 @@
 <script setup lang="ts">
 // Vue core
-import { computed, watch } from 'vue';
+import { computed, watch, reactive, provide, readonly, toRef } from 'vue';
 
 // Theme
+import type { Theme } from "@/types/theme";
 import { colors } from '@/constants/theme';
 
 // Base components
@@ -22,7 +23,6 @@ import FacialHair, { type FacialHairType } from './facialHairs/FacialHair.vue';
 import Hair, { type HairType } from './hairs/Hair.vue';
 import Hat, { type HatType } from './hats/Hat.vue';
 import Mouth, { type MouthType } from './mouths/Mouth.vue';
-import { useTheme } from '@/composables/useTheme';
 
 const props = withDefaults(defineProps<{
   // Layout
@@ -121,12 +121,17 @@ const clothingVisibility = computed(() => ({
   },
 })[props.clothing])
 
-const { setSkin } = useTheme();
+const theme = reactive({
+  skin: props.skin ? colors.skin[props.skin] : colors.skin.light
+});
 
-setSkin(props.skin)
 watch(() => props.skin, (skin) => {
-  setSkin(skin)
+  theme.skin = colors.skin[skin]
 })
+
+provide('theme', {
+  skin: readonly(toRef(theme, 'skin'))
+} as Theme);
 </script>
 
 <template>

@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { useTheme } from '@/composables/useTheme';
+import { inject } from 'vue';
+
 import { colors } from '@/constants/theme';
+import type { Theme } from '@/types/theme';
 import Lashes from './Lashes.vue';
 
 defineOptions({
@@ -11,7 +13,7 @@ defineProps<{
   withLashes: boolean
 }>()
 
-const { skin } = useTheme()
+const { skin } = inject<Theme>('theme')!;
 </script>
 
 <template>

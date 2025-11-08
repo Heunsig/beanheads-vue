@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { useTheme } from '@/composables/useTheme';
+import { inject } from 'vue';
+
 import { colors } from '@/constants/theme';
+import type { Theme } from '@/types/theme';
 
 defineOptions({
   inheritAttrs: false,
@@ -10,7 +12,7 @@ defineProps<{
   position: 'front' | 'back',
 }>()
 
-const { skin } = useTheme();
+const { skin } = inject<Theme>('theme')!;
 </script>
 
 <template>

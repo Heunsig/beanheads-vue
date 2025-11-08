@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { colors } from '@/constants/theme'
-import { useTheme } from '@/composables/useTheme'
+import { inject } from 'vue'
 
-const { skin } = useTheme();
+import { colors } from '@/constants/theme'
+import type { Theme } from '@/types/theme'
+
+const { skin } = inject<Theme>('theme')!;
 </script>
 
 <template>

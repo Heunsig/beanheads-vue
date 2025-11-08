@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { colors } from '@/constants/theme';
-import { useTheme } from '@/composables/useTheme';
 import Lashes from './Lashes.vue';
 
 defineOptions({
